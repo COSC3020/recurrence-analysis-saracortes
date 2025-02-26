@@ -49,7 +49,7 @@ $$ S = \frac{1 - (3^{-4})^k}{1 - 3^{-4}} $$
 $$ S = \frac{1 - 3^{-4k}}{1 - 3^{-4}} $$
 $$ T(n) = 3^k T(n/3^k) + n^5 \cdot \frac{1 - 3^{-4k}}{1 - 3^{-4}} $$
 with an asymptotic analysis we can say that:
-# $$ T(n) = \mathcal{O}(n^5) $$
+$$ T(n) = \mathcal{O}(n^5) $$
 
 
 Add your answer to this markdown file. [This
