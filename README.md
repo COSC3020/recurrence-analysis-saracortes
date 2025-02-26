@@ -27,6 +27,43 @@ function mystery(n) {
 }
 ```
 
+
+
+Recurrence relation:
+
+T(n) = 1, n ≤ 1 
+3T(n/3) + n^5, n > 1
+
+This recurrence relation can be solved thanks to the following:
+
+T(n) = 3T(n/3) + n^5
+
+T(n) = 3(3T(n/9) + (n/3)^5) + n^5
+
+T(n) = 9T(n/9) + 3(n/3)^5 + n^5
+
+T(n) = 9(3T(n/27) + (n/9)^5) + 3(n/3)^5 + n^5
+
+T(n) = 27T(n/27) + 9(n/9)^5 + 3(n/3)^5 + n^5
+
+T(n) = 3^k T(n/3^k) + \sum_{i=0}^{k-1} 3^i (n/3^i)^5
+
+T(n) = 3^k T(n/3^k) + n^5 \sum_{i=0}^{k-1} 3^i / 3^{5i}
+
+T(n) = 3^k T(n/3^k) + n^5 \sum_{i=0}^{k-1} 3^{i(1-5)}
+
+T(n) = 3^k T(n/3^k) + n^5 \sum_{i=0}^{k-1} 3^{-4i}
+
+S = \sum_{i=0}^{k-1} 3^{-4i}
+
+S = \frac{1 - (3^{-4})^k}{1 - 3^{-4}}
+
+S = \frac{1 - 3^{-4k}}{1 - 3^{-4}}
+
+T(n) = 3^k T(n/3^k) + n^5 \cdot \frac{1 - 3^{-4k}}{1 - 3^{-4}}
+
+T(n) = \mathcal{O}(n^5)
+
 Add your answer to this markdown file. [This
 page](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
 might help with the notation for mathematical expressions.
